@@ -1,7 +1,5 @@
 {
-  "build": {
-    "env": {
-      "GRAPHQL_ENDPOINT": "@graphql_endpoint"
-    }
+  "env": {
+    "GRAPHQL_ENDPOINT": "@graphql_endpoint"
   }
 }
