@@ -32,8 +32,8 @@ const GET_PROPERTIES = gql`
 export const config = { amp: 'hybrid' }
 
 const useStyles = makeStyles(theme => ({
-  cardGrid: {
-    padding: theme.spacing(2),
+  cardGridContainer: {
+    marginTop: theme.spacing(2),
   },
 }))
 
@@ -49,16 +49,14 @@ function index() {
   return (
     <div>
       <Container>
-        <Grid container alignItems="stretch">
+        <Grid
+          container
+          alignItems="stretch"
+          spacing={4}
+          className={classes.cardGridContainer}
+        >
           {properties.map(({ id, zone, mediumPictureUrl, description }) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              key={id}
-              className={classes.cardGrid}
-            >
+            <Grid item xs={12} sm={6} md={4} key={id}>
               <PropertyCard
                 id={id}
                 title={zone}
