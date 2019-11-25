@@ -7,6 +7,15 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="es">
+        <style jsx>
+          {`
+            html,
+            body {
+              height: 100%;
+              width: 100%;
+            }
+          `}
+        </style>
         <Head>
           <meta charSet="utf-8" />
           <meta
