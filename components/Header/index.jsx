@@ -1,4 +1,5 @@
 import React from 'react'
+import HeadRoom from 'react-headroom'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -20,24 +21,32 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar() {
   const classes = useStyles()
+  const [openDrawer, setOpenDrawer] = React.useState(false)
+
+  function toggleDrawer() {
+    setOpenDrawer(!openDrawer)
+  }
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            City Bienes Raíces
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <HeadRoom>
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              City Bienes Raíces
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
+    </HeadRoom>
   )
 }
